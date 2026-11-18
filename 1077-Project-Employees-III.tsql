@@ -1,0 +1,1 @@
+SELECT project_id,employee_id FROM (SELECT project_id,p.employee_id,rank() over (partition by project_id order by experience_years desc) as r FROM Project p join Employee e on p.employee_id=e.employee_id) x where r=1
